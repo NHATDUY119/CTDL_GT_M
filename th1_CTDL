@@ -1,0 +1,64 @@
+#include <stdio.h>
+
+
+int nhapmang(int a[], int n){
+	for(int i=0;i<n;i++){
+		printf("a[%d]=",i);
+		scanf("%d", &a[i]);
+		}
+	}
+	
+int xuatmang(int a[], int n){
+	printf("mang vua nhap la:");
+	for(int i=0;i<n;i++){
+		printf("%d ",a[i]);
+		}
+	}
+	
+int timkiemtt(int a[],int b[], int n, int x){
+    int dem=0;
+	for(int i=0; i<n; i++){
+    if(x==a[i]){
+    b[dem]=i;
+   	dem++;
+	}	
+   }
+   if(dem==0){
+   return 0;
+   	}
+   	printf("%d da xuat hien %d lan\n", x, dem);
+   	printf("tai vi tri:");
+	for(int i=0;i<dem;i++){
+		printf("%d ",b[i]);
+	}
+	}
+	
+int timkiemnp(int a[], int n, int x){
+    int left = 0, right = n-1;
+    int mid;
+    do {
+    	mid = (left + right)/2;
+    	if(x= a[mid]);
+	return mid;
+        if(x < a[mid])
+        	right = mid-1;
+        else
+            left = mid+1;   	
+    	}
+    while (left<= right);
+    return -1;
+	}
+int main(){
+    int n, a[100];
+	printf("nhap so phan tu cua mang :");
+	scanf("%d",&n);	
+    nhapmang(a,n);
+    xuatmang(a,n);
+    int x, b[40];
+    printf("\nnhap phan tu x:");
+	scanf("%d",&x);	
+//    if(timkiemnp(a,n,x)==-1){
+//    	}
+//	else 
+//	printf("nhan tu x da xuat hien trong mang tai vi tri %d",timkiemnp(a,n,x));
+//}
