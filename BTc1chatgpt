@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_LENGTH 1000
+
+int main() {
+    FILE *file;
+    char content[MAX_LENGTH];
+    char additionalInfo[MAX_LENGTH];
+
+    // Yêu c?u 1: Nh?p n?i dung và ghi vào file
+    printf("Nh?p n?i dung van b?n:\n");
+    fgets(content, MAX_LENGTH, stdin);
+
+    file = fopen("c1.txt", "w");
+    if (file == NULL) {
+        printf("Không th? m? t?p tin.\n");
+        return 1;
+    }
+    fputs(content, file);
+    fclose(file);
+
+    // Yêu c?u 2: Ð?c và in n?i dung t? file
+    printf("\nN?i dung van b?n t? file:\n");
+    file = fopen("c1.txt", "r");
+    if (file == NULL) {
+        printf("Không th? m? t?p tin.\n");
+        return 1;
+    }
+    while (fgets(content, MAX_LENGTH, file) != NULL) {
+        printf("%s", content);
+    }
+    fclose(file);
+
+    // Yêu c?u 3: Ð?c, in và n?i thêm thông tin vào cu?i file
+    printf("\nN?i dung van b?n t? file v?i thông tin n?i thêm:\n");
+    printf("Nh?p thông tin mu?n n?i thêm:\n");
+    fgets(additionalInfo, MAX_LENGTH, stdin);
+
+    file = fopen("c1.txt", "a");
+    if (file == NULL) {
+        printf("Không th? m? t?p tin.\n");
+        return 1;
+    }
+    fputs(additionalInfo, file);
+    fclose(file);
+
+    file = fopen("c1.txt", "r");
+    if (file == NULL) {
+        printf("Không th? m? t?p tin.\n");
+        return 1;
+    }
+    while (fgets(content, MAX_LENGTH, file) != NULL) {
+        printf("%s", content);
+    }
+    fclose(file);
+
+    return 0;
+}
